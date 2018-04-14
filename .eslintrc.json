@@ -1,0 +1,25 @@
+{
+    "extends": "standard",
+    "env": {
+        "browser": false,
+        "commonjs": true
+    },
+    "rules": {
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "double"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "no-console": "off"
+    },
+    "globals": {
+        
+    }
+}
