@@ -1,8 +1,10 @@
 "use strict";
+var Utils = require("./lib/utils.js");
+
 var HuobiClient = require("./lib/huobi/HuobiClient.js");
 
-console.log("hello huobi");
+Utils.printGreen("hello huobi");
 
 var client = new HuobiClient();
 
-client.getTry();
+client.getAccount();

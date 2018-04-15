@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "fetch": "node index.js"
+    "get": "node index.js"
   },
-  "author": "",
+  "author": "Yang Jun",
   "license": "ISC",
   "devDependencies": {
     "eslint": "^4.19.1",
