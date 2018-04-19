@@ -7,4 +7,4 @@ Utils.printGreen("hello huobi");
 
 var client = new HuobiClient();
 
-client.getAccount();
+client.getTry();
