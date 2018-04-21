@@ -95,7 +95,7 @@ Async.series(
     (callback) => {
       utils.printMagenta("--------------------------------------------------");
       utils.printYellow("\n\nTry to get v1 common exchange");
-      client.getV1CommonExchange(
+      client.getV1CommonExchange("usdt",
         someCallback(callback).bind(this));
     },
   ],
