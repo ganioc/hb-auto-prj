@@ -40,6 +40,11 @@ Async.series(
       client.getMarketTrade("btcusdt",
         someCallback(callback));
     },
+    (callback) => {
+      utils.printYellow("\n\nTry to get marketHistoryTrade, eth");
+      client.getMarketHistoryTrade("btcusdt",
+        someCallback(callback));
+    },
   ],
   (err) => {
     if (err) {
