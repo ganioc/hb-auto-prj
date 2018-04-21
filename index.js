@@ -17,23 +17,6 @@ utils.printGray("*********************************************");
 
 var client = new HuobiClient();
 
-// utils.printYellow("\n\nTry to get marketHistoryKLine, 1min, 3, btcusdt");
-// client.getMarketHistoryKLine("1min", "3", "btcusdt", (err, data) => {
-//   if (err) {
-//     utils.printRed("error:", err);
-//     return;
-//   }
-//   var obj;
-//   try {
-//     obj = JSON.parse(data);
-//   } catch (e) {
-//     utils.printRed(e);
-//     return;
-//   }
-//   utils.printGreen("Got response:");
-//   console.log(obj);
-// });
-
 Async.series(
   [
     (callback) => {
@@ -42,7 +25,7 @@ Async.series(
         someCallback(callback).bind(this));
     },
     (callback) => {
-      utils.printYellow("\n\nTry to get marketMerge");
+      utils.printYellow("\n\nTry to get marketDetailMerge, ethusdt");
       client.getMarketDetailMerged("ethusdt",
         someCallback(callback).bind(this));
     }
