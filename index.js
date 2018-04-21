@@ -45,13 +45,18 @@ Async.series(
       client.getMarketHistoryTrade("btcusdt",
         someCallback(callback));
     },
+    (callback) => {
+      utils.printYellow("\n\nTry to get marketDetail, btcusdt");
+      client.getMarketDetail("btcusdt",
+        someCallback(callback));
+    },
   ],
   (err) => {
     if (err) {
       utils.printRed(err);
       return;
     }
-    utils.printGreen("Work finished");
+    utils.printGray("============= Work finished ==============");
   }
 );
 
