@@ -22,32 +22,44 @@ Async.series(
   [
     (callback) => {
       utils.printYellow("\n\nTry to get marketHistoryKLine, 1min, 3, btcusdt");
+      utils.printMagenta("--------------------------------------------------");
       client.getMarketHistoryKLine("1min", "3", "btcusdt",
         someCallback(callback).bind(this));
     },
     (callback) => {
       utils.printYellow("\n\nTry to get marketDetailMerge, ethusdt");
+      utils.printMagenta("--------------------------------------------------");
       client.getMarketDetailMerged("ethusdt",
         someCallback(callback).bind(this));
     },
     (callback) => {
       utils.printYellow("\n\nTry to get marketDepth, ethusdt");
+      utils.printMagenta("--------------------------------------------------");
       client.getMarketDepth("ethusdt", "step1",
         someCallback(callback).bind(this));
     },
     (callback) => {
       utils.printYellow("\n\nTry to get marketTrade, eth");
+      utils.printMagenta("--------------------------------------------------");
       client.getMarketTrade("btcusdt",
         someCallback(callback));
     },
     (callback) => {
       utils.printYellow("\n\nTry to get marketHistoryTrade, eth");
+      utils.printMagenta("--------------------------------------------------");
       client.getMarketHistoryTrade("btcusdt",
         someCallback(callback));
     },
     (callback) => {
       utils.printYellow("\n\nTry to get marketDetail, btcusdt");
+      utils.printMagenta("--------------------------------------------------");
       client.getMarketDetail("btcusdt",
+        someCallback(callback));
+    },
+    (callback) => {
+      utils.printYellow("\n\nTry to get v1CommonSymbols");
+      utils.printMagenta("--------------------------------------------------");
+      client.getV1CommonSymbols(
         someCallback(callback));
     },
   ],
