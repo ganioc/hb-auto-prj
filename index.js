@@ -18,7 +18,7 @@ utils.printGray("*********************************************");
 
 var client = new HuobiClient();
 
-Async.series(
+/* Async.series(
   [
     (callback) => {
       utils.printYellow("\n\nTry to get marketHistoryKLine, 1min, 3, btcusdt");
@@ -76,8 +76,25 @@ Async.series(
     }
     utils.printGray("============= Work finished ==============");
   }
-);
+); */
 
+Async.series(
+  [
+    (callback) => {
+      utils.printYellow("\n\nTry to get v1 common timestamp");
+      utils.printMagenta("--------------------------------------------------");
+      client.getV1CommonTimestamp(
+        someCallback(callback).bind(this));
+    },
+  ],
+  (err) => {
+    if (err) {
+      utils.printRed(err);
+      return;
+    }
+    utils.printGray("============= Work finished ==============");
+  }
+);
 // The callback for async.series
 function someCallback (callback) {
   return (err, data) => {
