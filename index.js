@@ -4,6 +4,7 @@ var path = require("path");
 var Async = require("async");
 var HuobiClient = require("./lib/huobi/HuobiClient.js");
 var utils = new Utils(path.basename(__filename));
+var util = require("util");
 
 utils.printGray("********************************************");
 utils.printGray("|\\     /||\\     /|(  ___  )(  ___ \\ \\__   __/");
@@ -61,7 +62,8 @@ function someCallback (callback) {
       return callback(err);
     }
     utils.printGreen("Got response:");
-    console.log(obj);
+    console.log(util.inspect(obj,
+      {showHidden: false, depth: null}));
     callback(null);
   };
 }
