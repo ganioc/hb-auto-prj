@@ -4,6 +4,7 @@ var path = require("path");
 
 var HuobiClient = require("./lib/huobi/HuobiClient.js");
 var utils = new Utils(path.basename(__filename));
+var Async = require("async");
 
 utils.printGray("********************************************");
 utils.printGray("|\\     /||\\     /|(  ___  )(  ___ \\ \\__   __/");
@@ -17,22 +18,72 @@ utils.printGray("*********************************************");
 
 var client = new HuobiClient();
 
-utils.printYellow("\n\nTry to get marketHistoryKLine, 1min, 3, btcusdt");
-client.getMarketHistoryKLine("1min", "3", "btcusdt", (err, data) => {
-  if (err) {
-    utils.printRed("error:", err);
-    return;
+// utils.printYellow("\n\nTry to get marketHistoryKLine, 1min, 3, btcusdt");
+// client.getMarketHistoryKLine("1min", "3", "btcusdt", (err, data) => {
+//   if (err) {
+//     utils.printRed("error:", err);
+//     return;
+//   }
+//   var obj;
+//   try {
+//     obj = JSON.parse(data);
+//   } catch (e) {
+//     utils.printRed(e);
+//     return;
+//   }
+//   utils.printGreen("Got response:");
+//   console.log(obj);
+// });
+
+Async.series(
+  [
+    (callback) => {
+      utils.printYellow("\n\nTry to get marketHistoryKLine, 1min, 3, btcusdt");
+      client.getMarketHistoryKLine("1min", "3", "btcusdt", (err, data) => {
+        if (err) {
+          utils.printRed("error:", err);
+          return callback(err);
+        }
+        var obj;
+        try {
+          obj = JSON.parse(data);
+        } catch (e) {
+          utils.printRed(e);
+          return callback(err);
+        }
+        utils.printGreen("Got response:");
+        console.log(obj);
+        callback(null);
+      });
+    },
+    (callback) => {
+      utils.printYellow("\n\nTry to get marketMerge");
+      client.getMarketDetailMerged("ethusdt", (err,data) => {
+        if (err) {
+          utils.printRed("error:", err);
+          return callback(err);
+        }
+        var obj;
+        try {
+          obj = JSON.parse(data);
+        } catch (e) {
+          utils.printRed(e);
+          return callback(err);
+        }
+        utils.printGreen("Got response:");
+        console.log(obj);
+        callback(null);
+      });
+    }
+  ],
+  (err) => {
+    if (err) {
+      utils.printRed(err);
+      return;
+    }
+    utils.printGreen("Work finished");
   }
-  var obj;
-  try {
-    obj = JSON.parse(data);
-  } catch (e) {
-    utils.printRed(e);
-    return;
-  }
-  utils.printGreen("Got response:");
-  console.log(obj);
-});
+);
 
 // utils.print("gray");
 // utils.printCyan("cyan");
