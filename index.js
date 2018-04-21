@@ -37,7 +37,7 @@ Async.series(
     },
     (callback) => {
       utils.printYellow("\n\nTry to get marketTrade, eth");
-      client.getMarketTrade("eth",
+      client.getMarketTrade("btcusdt",
         someCallback(callback));
     },
   ],
