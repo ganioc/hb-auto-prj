@@ -62,6 +62,12 @@ Async.series(
       client.getV1CommonSymbols(
         someCallback(callback));
     },
+    (callback) => {
+      utils.printYellow("\n\nTry to get v1CommonCurrencys");
+      utils.printMagenta("--------------------------------------------------");
+      client.getV1CommonCurrencys(
+        someCallback(callback));
+    },
   ],
   (err) => {
     if (err) {
