@@ -1,10 +1,9 @@
 "use strict";
 var Utils = require("./lib/utils.js");
 var path = require("path");
-
+var Async = require("async");
 var HuobiClient = require("./lib/huobi/HuobiClient.js");
 var utils = new Utils(path.basename(__filename));
-var Async = require("async");
 
 utils.printGray("********************************************");
 utils.printGray("|\\     /||\\     /|(  ___  )(  ___ \\ \\__   __/");
@@ -58,7 +57,7 @@ Async.series(
     },
     (callback) => {
       utils.printYellow("\n\nTry to get marketMerge");
-      client.getMarketDetailMerged("ethusdt", (err,data) => {
+      client.getMarketDetailMerged("ethusdt", (err, data) => {
         if (err) {
           utils.printRed("error:", err);
           return callback(err);
