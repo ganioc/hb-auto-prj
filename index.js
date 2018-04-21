@@ -31,7 +31,7 @@ client.getMarketHistoryKLine("1min", "3", "btcusdt", (err, data) => {
     return;
   }
   utils.printGreen("Got response:");
-  utils.print(obj);
+  console.log(obj);
 });
 
 // utils.print("gray");
