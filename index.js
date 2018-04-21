@@ -28,7 +28,12 @@ Async.series(
       utils.printYellow("\n\nTry to get marketDetailMerge, ethusdt");
       client.getMarketDetailMerged("ethusdt",
         someCallback(callback).bind(this));
-    }
+    },
+    (callback) => {
+      utils.printYellow("\n\nTry to get marketDepth, ethusdt");
+      client.getMarketDepth("ethusdt", "step1",
+        someCallback(callback).bind(this));
+    },
   ],
   (err) => {
     if (err) {
