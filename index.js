@@ -17,7 +17,7 @@ utils.printGray("*********************************************");
 
 var client = new HuobiClient();
 
-utils.printYellow("Try to get marketHistoryKLine, 1min, 3, btcusdt");
+utils.printYellow("\n\nTry to get marketHistoryKLine, 1min, 3, btcusdt");
 client.getMarketHistoryKLine("1min", "3", "btcusdt", (err, data) => {
   if (err) {
     utils.printRed("error:", err);
