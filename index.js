@@ -38,41 +38,13 @@ Async.series(
   [
     (callback) => {
       utils.printYellow("\n\nTry to get marketHistoryKLine, 1min, 3, btcusdt");
-      client.getMarketHistoryKLine("1min", "3", "btcusdt", (err, data) => {
-        if (err) {
-          utils.printRed("error:", err);
-          return callback(err);
-        }
-        var obj;
-        try {
-          obj = JSON.parse(data);
-        } catch (e) {
-          utils.printRed(e);
-          return callback(err);
-        }
-        utils.printGreen("Got response:");
-        console.log(obj);
-        callback(null);
-      });
+      client.getMarketHistoryKLine("1min", "3", "btcusdt",
+        someCallback(callback).bind(this));
     },
     (callback) => {
       utils.printYellow("\n\nTry to get marketMerge");
-      client.getMarketDetailMerged("ethusdt", (err, data) => {
-        if (err) {
-          utils.printRed("error:", err);
-          return callback(err);
-        }
-        var obj;
-        try {
-          obj = JSON.parse(data);
-        } catch (e) {
-          utils.printRed(e);
-          return callback(err);
-        }
-        utils.printGreen("Got response:");
-        console.log(obj);
-        callback(null);
-      });
+      client.getMarketDetailMerged("ethusdt",
+        someCallback(callback).bind(this));
     }
   ],
   (err) => {
@@ -86,3 +58,22 @@ Async.series(
 
 // utils.print("gray");
 // utils.printCyan("cyan");
+
+function someCallback (callback) {
+  return (err, data) => {
+    if (err) {
+      utils.printRed("error:", err);
+      return callback(err);
+    }
+    var obj;
+    try {
+      obj = JSON.parse(data);
+    } catch (e) {
+      utils.printRed(e);
+      return callback(err);
+    }
+    utils.printGreen("Got response:");
+    console.log(obj);
+    callback(null);
+  };
+}
