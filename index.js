@@ -35,6 +35,11 @@ Async.series(
       client.getMarketDepth("ethusdt", "step1",
         someCallback(callback).bind(this));
     },
+    (callback) => {
+      utils.printYellow("\n\nTry to get marketTrade, ethusdt");
+      client.getMarketTrade("ethusdt",
+        someCallback(callback));
+    },
   ],
   (err) => {
     if (err) {
@@ -45,9 +50,7 @@ Async.series(
   }
 );
 
-// utils.print("gray");
-// utils.printCyan("cyan");
-
+// The callback for async.series
 function someCallback (callback) {
   return (err, data) => {
     if (err) {
