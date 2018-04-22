@@ -92,6 +92,12 @@ Async.series(
       client.getV1AccountAccounts(
         someCallback(callback).bind(this));
     },
+    (callback) => {
+      utils.printMagenta("--------------------------------------------------");
+      utils.printYellow("Try to get v1 account balance");
+      client.getV1AccountAccounts(
+        someCallback(callback).bind(this));
+    },
     // (callback) => {
     //   utils.printMagenta("--------------------------------------------------");
     //   utils.printYellow("\n\nTry to get v1 common exchange");
