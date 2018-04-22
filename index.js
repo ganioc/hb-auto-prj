@@ -82,13 +82,13 @@ Async.series(
   [
     (callback) => {
       utils.printMagenta("--------------------------------------------------");
-      utils.printYellow("\n\nTry to get v1 common timestamp");
+      utils.printYellow("Try to get v1 common timestamp");
       client.getV1CommonTimestamp(
         someCallback(callback).bind(this));
     },
     (callback) => {
       utils.printMagenta("--------------------------------------------------");
-      utils.printYellow("\n\nTry to get v1 account accounts");
+      utils.printYellow("Try to get v1 account accounts");
       client.getV1AccountAccounts(
         someCallback(callback).bind(this));
     },
