@@ -95,7 +95,7 @@ Async.series(
     (callback) => {
       utils.printMagenta("--------------------------------------------------");
       utils.printYellow("Try to get v1 account balance");
-      client.getV1AccountAccounts(
+      client.getV1AccountBalance(
         someCallback(callback).bind(this));
     },
     // (callback) => {
