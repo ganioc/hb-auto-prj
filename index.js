@@ -80,12 +80,12 @@ var client = new HuobiClient();
 
 Async.series(
   [
-    // (callback) => {
-    //   utils.printMagenta("--------------------------------------------------");
-    //   utils.printYellow("\n\nTry to get v1 common timestamp");
-    //   client.getV1CommonTimestamp(
-    //     someCallback(callback).bind(this));
-    // },
+    (callback) => {
+      utils.printMagenta("--------------------------------------------------");
+      utils.printYellow("\n\nTry to get v1 common timestamp");
+      client.getV1CommonTimestamp(
+        someCallback(callback).bind(this));
+    },
     (callback) => {
       utils.printMagenta("--------------------------------------------------");
       utils.printYellow("\n\nTry to get v1 account accounts");
