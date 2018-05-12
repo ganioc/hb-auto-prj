@@ -122,6 +122,12 @@ Async.series(
       client.getOrders("ruffusdt", "submitted",
         someCallback(callback).bind(this));
     },
+    (callback) => {
+      utils.printMagenta("--------------------------------------------------");
+      utils.printYellow("\n\nTry to query matchresults, ruffusdt");
+      client.getMatchresults("ruffusdt",
+        someCallback(callback).bind(this));
+    },
   ],
   (err) => {
     if (err) {
