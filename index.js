@@ -104,10 +104,16 @@ Async.series(
     //   client.getV1CommonExchange("usdt",
     //     someCallback(callback).bind(this));
     // },
+    // (callback) => {
+    //   utils.printMagenta("--------------------------------------------------");
+    //   utils.printYellow("\n\nTry to place an order for ethusdt");
+    //   client.postOrderPlace("0.01", "600", "ethusdt", "buy-limit",
+    //     someCallback(callback).bind(this));
+    // },
     (callback) => {
       utils.printMagenta("--------------------------------------------------");
-      utils.printYellow("\n\nTry to place an order for ethusdt");
-      client.postOrderPlace("0.01", "600", "ethusdt", "buy-limit",
+      utils.printYellow("\n\nTry to cancel an order for ethusdt");
+      client.postOrderSubmitcancel("4373808887",
         someCallback(callback).bind(this));
     },
   ],
