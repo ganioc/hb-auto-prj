@@ -110,10 +110,16 @@ Async.series(
     //   client.postOrderPlace("0.01", "600", "ethusdt", "buy-limit",
     //     someCallback(callback).bind(this));
     // },
+    // (callback) => {
+    //   utils.printMagenta("--------------------------------------------------");
+    //   utils.printYellow("\n\nTry to cancel an order for ethusdt");
+    //   client.postOrderSubmitcancel("4373808887",
+    //     someCallback(callback).bind(this));
+    // },
     (callback) => {
       utils.printMagenta("--------------------------------------------------");
-      utils.printYellow("\n\nTry to cancel an order for ethusdt");
-      client.postOrderSubmitcancel("4373808887",
+      utils.printYellow("\n\nTry to query orders, ruffusdt");
+      client.getOrders("ruffusdt", "submitted",
         someCallback(callback).bind(this));
     },
   ],
