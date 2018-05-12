@@ -80,30 +80,36 @@ var client = new HuobiClient();
 
 Async.series(
   [
-    (callback) => {
-      utils.printMagenta("--------------------------------------------------");
-      utils.printYellow("Try to get v1 common timestamp");
-      client.getV1CommonTimestamp(
-        someCallback(callback).bind(this));
-    },
-    (callback) => {
-      utils.printMagenta("--------------------------------------------------");
-      utils.printYellow("Try to get v1 account accounts");
-      client.getV1AccountAccounts(
-        someCallback(callback).bind(this));
-    },
-    (callback) => {
-      utils.printMagenta("--------------------------------------------------");
-      utils.printYellow("Try to get v1 account balance");
-      client.getV1AccountBalance(
-        someCallback(callback).bind(this));
-    },
+    // (callback) => {
+    //   utils.printMagenta("--------------------------------------------------");
+    //   utils.printYellow("Try to get v1 common timestamp");
+    //   client.getV1CommonTimestamp(
+    //     someCallback(callback).bind(this));
+    // },
+    // (callback) => {
+    //   utils.printMagenta("--------------------------------------------------");
+    //   utils.printYellow("Try to get v1 account accounts");
+    //   client.getV1AccountAccounts(
+    //     someCallback(callback).bind(this));
+    // },
+    // (callback) => {
+    //   utils.printMagenta("--------------------------------------------------");
+    //   utils.printYellow("Try to get v1 account balance");
+    //   client.getV1AccountBalance(
+    //     someCallback(callback).bind(this));
+    // },
     // (callback) => {
     //   utils.printMagenta("--------------------------------------------------");
     //   utils.printYellow("\n\nTry to get v1 common exchange");
     //   client.getV1CommonExchange("usdt",
     //     someCallback(callback).bind(this));
     // },
+    (callback) => {
+      utils.printMagenta("--------------------------------------------------");
+      utils.printYellow("\n\nTry to place an order for ethusdt");
+      client.postOrderPlace("0.01", "600", "ethusdt", "buy-limit",
+        someCallback(callback).bind(this));
+    },
   ],
   (err) => {
     if (err) {
@@ -114,7 +120,7 @@ Async.series(
   }
 );
 // The callback for async.series
-function someCallback (callback) {
+function someCallback(callback) {
   return (err, data) => {
     if (err) {
       utils.printRed("error:", err);
@@ -129,7 +135,7 @@ function someCallback (callback) {
     }
     utils.printGreen("Got response:");
     console.log(util.inspect(obj,
-      {showHidden: false, depth: null}));
+      { showHidden: false, depth: null }));
     callback(null);
   };
 }
