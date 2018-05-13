@@ -1,70 +1,70 @@
-"use strict";
-var Utils = require("./lib/utils.js");
-var path = require("path");
-var Async = require("async");
-var HuobiClient = require("./lib/huobi/HuobiClient.js");
+'use strict';
+var path = require('path');
+var Utils = require('./lib/utils.js');
 var utils = new Utils(path.basename(__filename));
-var util = require("util");
+var Async = require('async');
+var HuobiClient = require('./lib/huobi/HuobiClient.js');
+var util = require('util');
 
-utils.printGray("********************************************");
-utils.printGray("|\\     /||\\     /|(  ___  )(  ___ \\ \\__   __/");
-utils.printGray("| )   ( || )   ( || (   ) || (   ) )   ) (");
-utils.printGray("| (___) || |   | || |   | || (__/ /    | |");
-utils.printGray("|  ___  || |   | || |   | ||  __ (     | | ");
-utils.printGray("| (   ) || |   | || |   | || (  \\ \\    | |");
-utils.printGray("| )   ( || (___) || (___) || )___) )___) (___");
-utils.printGray("|/     \\|(_______)(_______)|/ \\___/ \\_______/");
-utils.printGray("*********************************************");
+utils.printGray('********************************************');
+utils.printGray('|\\     /||\\     /|(  ___  )(  ___ \\ \\__   __/');
+utils.printGray('| )   ( || )   ( || (   ) || (   ) )   ) (');
+utils.printGray('| (___) || |   | || |   | || (__/ /    | |');
+utils.printGray('|  ___  || |   | || |   | ||  __ (     | | ');
+utils.printGray('| (   ) || |   | || |   | || (  \\ \\    | |');
+utils.printGray('| )   ( || (___) || (___) || )___) )___) (___');
+utils.printGray('|/     \\|(_______)(_______)|/ \\___/ \\_______/');
+utils.printGray('*********************************************');
 
 var client = new HuobiClient();
 
 /* Async.series(
   [
     (callback) => {
-      utils.printYellow("\n\nTry to get marketHistoryKLine, 1min, 3, btcusdt");
-      utils.printMagenta("--------------------------------------------------");
-      client.getMarketHistoryKLine("1min", "3", "btcusdt",
+      utils.printYellow('\n\nTry to get marketHistoryKLine, 1min, 3, btcusdt');
+      utils.printMagenta('--------------------------------------------------');
+      client.getMarketHistoryKLine('1min', '3', 'btcusdt',
         someCallback(callback).bind(this));
     },
     (callback) => {
-      utils.printYellow("\n\nTry to get marketDetailMerge, ethusdt");
-      utils.printMagenta("--------------------------------------------------");
-      client.getMarketDetailMerged("ethusdt",
+      utils.printYellow('\n\nTry to get marketDetailMerge, ethusdt');
+      utils.printMagenta('--------------------------------------------------');
+      client.getMarketDetailMerged('ethusdt',
         someCallback(callback).bind(this));
     },
     (callback) => {
-      utils.printYellow("\n\nTry to get marketDepth, ethusdt");
-      utils.printMagenta("--------------------------------------------------");
-      client.getMarketDepth("ethusdt", "step1",
+      utils.printYellow('\n\nTry to get marketDepth, ethusdt');
+      utils.printMagenta('--------------------------------------------------');
+      client.getMarketDepth('ethusdt', 'step1',
         someCallback(callback).bind(this));
     },
     (callback) => {
-      utils.printYellow("\n\nTry to get marketTrade, eth");
-      utils.printMagenta("--------------------------------------------------");
-      client.getMarketTrade("btcusdt",
+      utils.printYellow('\n\nTry to get marketTrade, eth');
+      utils.printMagenta('--------------------------------------------------');
+      client.getMarketTrade('btcusdt',
         someCallback(callback));
     },
     (callback) => {
-      utils.printYellow("\n\nTry to get marketHistoryTrade, eth");
-      utils.printMagenta("--------------------------------------------------");
-      client.getMarketHistoryTrade("btcusdt",
+      utils.printYellow('\n\nTry to get marketHistoryTrade, eth');
+      utils.printMagenta('--------------------------------------------------');
+      client.getMarketHistoryTrade('btcusdt',
         someCallback(callback));
     },
     (callback) => {
-      utils.printYellow("\n\nTry to get marketDetail, btcusdt");
-      utils.printMagenta("--------------------------------------------------");
-      client.getMarketDetail("btcusdt",
+      utils.printYellow('\n\nTry to get marketDetail, btcusdt');
+      utils.printMagenta('--------------------------------------------------');
+      client.getMarketDetail('btcusdt',
         someCallback(callback));
     },
     (callback) => {
-      utils.printYellow("\n\nTry to get v1CommonSymbols");
-      utils.printMagenta("--------------------------------------------------");
+      utils.printYellow('\n\nTry to get v1CommonSymbols');
+      utils.printMagenta('--------------------------------------------------');
       client.getV1CommonSymbols(
         someCallback(callback));
     },
     (callback) => {
-      utils.printYellow("\n\nTry to get v1CommonCurrencys");
-      utils.printMagenta("--------------------------------------------------");
+      utils.printYellow('\n\nTry to get v1CommonCurrencys');
+      utils.printMagenta('--------------------------------------------------');
       client.getV1CommonCurrencys(
         someCallback(callback));
     },
@@ -74,58 +74,58 @@ var client = new HuobiClient();
       utils.printRed(err);
       return;
     }
-    utils.printGray("============= Work finished ==============");
+    utils.printGray('============= Work finished ==============');
   }
 ); */
 
 Async.series(
   [
     // (callback) => {
-    //   utils.printMagenta("--------------------------------------------------");
-    //   utils.printYellow("Try to get v1 common timestamp");
+    //   utils.printMagenta('--------------------------------------------------');
+    //   utils.printYellow('Try to get v1 common timestamp');
     //   client.getV1CommonTimestamp(
     //     someCallback(callback).bind(this));
     // },
     // (callback) => {
-    //   utils.printMagenta("--------------------------------------------------");
-    //   utils.printYellow("Try to get v1 account accounts");
+    //   utils.printMagenta('--------------------------------------------------');
+    //   utils.printYellow('Try to get v1 account accounts');
     //   client.getV1AccountAccounts(
     //     someCallback(callback).bind(this));
     // },
     // (callback) => {
-    //   utils.printMagenta("--------------------------------------------------");
-    //   utils.printYellow("Try to get v1 account balance");
+    //   utils.printMagenta('--------------------------------------------------');
+    //   utils.printYellow('Try to get v1 account balance');
     //   client.getV1AccountBalance(
     //     someCallback(callback).bind(this));
     // },
     // (callback) => {
-    //   utils.printMagenta("--------------------------------------------------");
-    //   utils.printYellow("\n\nTry to get v1 common exchange");
-    //   client.getV1CommonExchange("usdt",
+    //   utils.printMagenta('--------------------------------------------------');
+    //   utils.printYellow('\n\nTry to get v1 common exchange');
+    //   client.getV1CommonExchange('usdt',
     //     someCallback(callback).bind(this));
     // },
     // (callback) => {
-    //   utils.printMagenta("--------------------------------------------------");
-    //   utils.printYellow("\n\nTry to place an order for ethusdt");
-    //   client.postOrderPlace("0.01", "600", "ethusdt", "buy-limit",
+    //   utils.printMagenta('--------------------------------------------------');
+    //   utils.printYellow('\n\nTry to place an order for ethusdt');
+    //   client.postOrderPlace('0.01', '600', 'ethusdt', 'buy-limit',
     //     someCallback(callback).bind(this));
     // },
     // (callback) => {
-    //   utils.printMagenta("--------------------------------------------------");
-    //   utils.printYellow("\n\nTry to cancel an order for ethusdt");
-    //   client.postOrderSubmitcancel("4373808887",
+    //   utils.printMagenta('--------------------------------------------------');
+    //   utils.printYellow('\n\nTry to cancel an order for ethusdt');
+    //   client.postOrderSubmitcancel('4373808887',
     //     someCallback(callback).bind(this));
     // },
     (callback) => {
-      utils.printMagenta("--------------------------------------------------");
-      utils.printYellow("\n\nTry to query orders, ruffusdt");
-      client.getOrders("ruffusdt", "submitted",
+      utils.printMagenta('--------------------------------------------------');
+      utils.printYellow('\n\nTry to query orders, ruffusdt');
+      client.getOrders('ruffusdt', 'submitted',
         someCallback(callback).bind(this));
     },
     (callback) => {
-      utils.printMagenta("--------------------------------------------------");
-      utils.printYellow("\n\nTry to query matchresults, ruffusdt");
-      client.getMatchresults("ruffusdt",
+      utils.printMagenta('--------------------------------------------------');
+      utils.printYellow('\n\nTry to query matchresults, ruffusdt');
+      client.getMatchresults('ruffusdt',
         someCallback(callback).bind(this));
     },
   ],
@@ -134,14 +134,14 @@ Async.series(
       utils.printRed(err);
       return;
     }
-    utils.printGray("============= Work finished ==============");
+    utils.printGray('============= Work finished ==============');
   }
 );
 // The callback for async.series
-function someCallback(callback) {
+function someCallback (callback) {
   return (err, data) => {
     if (err) {
-      utils.printRed("error:", err);
+      utils.printRed('error:', err);
       return callback(err);
     }
     var obj;
@@ -151,7 +151,7 @@ function someCallback(callback) {
       utils.printRed(e);
       return callback(err);
     }
-    utils.printGreen("Got response:");
+    utils.printGreen('Got response:');
     console.log(util.inspect(obj,
       { showHidden: false, depth: null }));
     callback(null);
